@@ -252,6 +252,7 @@ function install_phpmodules(){
     sudo apt-get -y install php-pear
     sudo apt-get -y install php7.2-pspell
     sudo apt-get -y install php7.2-tidy
+    sudo apt-get -y install php7.2-xml
     sudo apt-get -y install php7.2-xmlrpc
     sudo apt-get -y install php7.2-zip
 
