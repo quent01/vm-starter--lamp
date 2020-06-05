@@ -45,6 +45,7 @@ function install_base(){
     sudo apt-get -y install git
 
     sudo apt-get -y install shellcheck
+    sudo apt-get -y install dos2unix
 
     # Weird Vagrant issue fix
     sudo apt-get install -y ifupdown
@@ -269,6 +270,8 @@ function install_phpmodules(){
     # IMAGE MAGIC
     sudo apt-get -y install imagemagick
     sudo apt-get -y install php7.2-imagick
+
+    sudo update-alternatives --set php /usr/bin/php7.2
 }
 install_phpmodules
 
