@@ -15,5 +15,14 @@ sudo apt-get autoremove
 sudo apt-get clean
 
 
-# Delete bash histroy and exit
-cat /dev/null > ~/.bash_history && history -c && exit
+# Delete bash history and exit
+cat /dev/null > ~/.bash_history && history -c
+
+echo "---------------------------------"
+echo "The box was cleaned"
+echo "Exit the box and lauch : "
+echo "---------------------------------"
+echo "---> vagrant halt"
+echo "---> vagrant package --output <name_of_box>.box"
+echo "---> vagrant cloud publish <org_name>/<box_name> <version> virtualbox <name_of_box>.box"
+echo "---------------------------------"
