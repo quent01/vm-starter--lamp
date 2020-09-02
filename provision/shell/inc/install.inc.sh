@@ -271,6 +271,9 @@ function install_phpmodules(){
     sudo apt-get -y install imagemagick
     sudo apt-get -y install php7.2-imagick
 
+    # install soap
+    sudo apt-get -y install php7.2-soap
+
     sudo update-alternatives --set php /usr/bin/php7.2
 }
 install_phpmodules
