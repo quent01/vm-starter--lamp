@@ -35,17 +35,17 @@ Vagrant.configure("2") do |config|
     end
 
     # Windows Support
-    # if Vagrant::Util::Platform.windows?
-    #     config.vm.provision "shell",
-    #     inline: "
-    #         sudo apt-get install -y dos2unix && 
-    #         cd /var/www/provision/shell &&
-    #         find . -type f -name '*.sh' -print0 | xargs -0 dos2unix &&
-    #         cd /var/www/provision/apache &&
-    #         find . -type f -name '*.conf' -print0 | xargs -0 dos2unix
-    #     ",
-    #     run: "always", privileged: false
-    # end
+    if Vagrant::Util::Platform.windows?
+        config.vm.provision "shell",
+        inline: "
+            sudo apt-get install -y dos2unix && 
+            cd /var/www/provision/shell &&
+            find . -type f -name '*.sh' -print0 | xargs -0 dos2unix &&
+            cd /var/www/provision/apache &&
+            find . -type f -name '*.conf' -print0 | xargs -0 dos2unix
+        ",
+        run: "always", privileged: false
+    end
 
     # SSh Keys
     # config.vm.provision "shell" do |s|
