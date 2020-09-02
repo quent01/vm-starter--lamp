@@ -252,6 +252,7 @@ function install_phpmodules(){
     sudo apt-get -y install php-pear
     sudo apt-get -y install php7.2-pspell
     sudo apt-get -y install php7.2-tidy
+    sudo apt-get -y install php7.2-xml
     sudo apt-get -y install php7.2-xmlrpc
     sudo apt-get -y install php7.2-zip
 
@@ -458,10 +459,10 @@ function install_beanstalkd(){
 # ==============================*/
 function install_wpcli(){
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-    sudo chmod +x wp-cli.phar
     sudo mv wp-cli.phar /usr/local/bin/wp
+    sudo chmod +x /usr/local/bin/wp
 }
-# install_wpcli
+install_wpcli
 
 
 
