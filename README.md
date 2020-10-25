@@ -12,7 +12,7 @@ Box build from [Scotchbox build scripts](https://github.com/scotch-io/scotch-box
 - NGINX Option
 - Go lang in the box
 - PHPUnit in the box
-- MailHog
+- MailHog : launch command "mailhog" after vagrant ssh
 - dos2unix : 
 - shellcheck : 
 

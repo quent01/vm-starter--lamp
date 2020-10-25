@@ -570,12 +570,10 @@ function install_memcached(){
 # /*==============================
 # =            GOLANG            =
 # ==============================*/
-function install_golang(){
-    sudo add-apt-repository -y ppa:longsleep/golang-backports
-    sudo apt-get update
+function install_go(){
     sudo apt-get -y install golang-go
 }
-# install_golang
+install_go
 
 
 
@@ -585,8 +583,7 @@ function install_golang(){
 # =            MAILHOG            =
 # ===============================*/
 function install_mailhog(){
-sudo wget --quiet -O ~/mailhog https://github.com/mailhog/MailHog/releases/download/v1.0.0/MailHog_linux_amd64
-sudo chmod +x ~/mailhog
+sudo go get github.com/mailhog/MailHog
 
 # Enable and Turn on
 sudo tee /etc/systemd/system/mailhog.service <<EOL
@@ -604,6 +601,7 @@ sudo systemctl start mailhog
 
 # Install Sendmail replacement for MailHog
 sudo go get github.com/mailhog/mhsendmail
+sudo ln /root/go/bin/MailHog /usr/bin/mailhog
 sudo ln ~/go/bin/mhsendmail /usr/bin/mhsendmail
 sudo ln ~/go/bin/mhsendmail /usr/bin/sendmail
 sudo ln ~/go/bin/mhsendmail /usr/bin/mail
@@ -632,7 +630,7 @@ install_mailhog
 sudo chmod -x /etc/update-motd.d/*
 
 # Set the new message
-echo "$WELCOME_MESSAGE" | sudo tee /etc/motd
+echo "${WELCOME_MESSAGE}" | sudo tee /etc/motd
 
 
 
