@@ -5,11 +5,11 @@
 
 function reboot_webserver_helper() {
 
-    if [ $INSTALL_NGINX_INSTEAD != 1 ]; then
+    if [ "${INSTALL_NGINX_INSTEAD}" != "1" ]; then
         sudo service apache2 restart
     fi
 
-    if [ $INSTALL_NGINX_INSTEAD == 1 ]; then
+    if [ "${INSTALL_NGINX_INSTEAD}" == "1" ]; then
         sudo systemctl restart php7.2-fpm
         sudo systemctl restart nginx
     fi
@@ -103,7 +103,7 @@ function install_apache(){
 }
 
 
-if [ $INSTALL_NGINX_INSTEAD != 1 ]; then
+if [ "${INSTALL_NGINX_INSTEAD}" != "1" ]; then
     install_apache
 fi
 
@@ -143,7 +143,7 @@ function install_nginx(){
 
     sudo systemctl restart nginx
 }
-if [ $INSTALL_NGINX_INSTEAD == 1 ]; then
+if [ "${INSTALL_NGINX_INSTEAD}" == 1 ]; then
     install_nginx
 fi
 
@@ -160,7 +160,7 @@ function install_php(){
     sudo apt-get install -y php7.2
 
     # Make PHP and Apache friends
-    if [ $INSTALL_NGINX_INSTEAD != 1 ]; then
+    if [ "${INSTALL_NGINX_INSTEAD}" != "1" ]; then
 
         sudo apt-get -y install libapache2-mod-php
 
@@ -175,7 +175,7 @@ function install_php(){
     fi
 
     # Make PHP and NGINX friends
-    if [ $INSTALL_NGINX_INSTEAD == 1 ]; then
+    if [ "${INSTALL_NGINX_INSTEAD}" == "1" ]; then
 
         # FPM STUFF
         sudo apt-get -y install php7.2-fpm
@@ -288,7 +288,7 @@ install_phpmodules
 # ===========================================*/
 
 function php_settings(){
-    if [ $INSTALL_NGINX_INSTEAD == 1 ]; then
+    if [ "${INSTALL_NGINX_INSTEAD}" == "1" ]; then
         PHP_USER_INI_PATH=/etc/php/7.2/fpm/conf.d/user.ini
     else
         PHP_USER_INI_PATH=/etc/php/7.2/apache2/conf.d/user.ini
@@ -304,7 +304,7 @@ function php_settings(){
     echo 'opache.enable = 0' | sudo tee -a $PHP_USER_INI_PATH
 
     # Absolutely Force Zend OPcache off...
-    if [ $INSTALL_NGINX_INSTEAD == 1 ]; then
+    if [ "${INSTALL_NGINX_INSTEAD}" == "1" ]; then
         sudo sed -i s,\;opcache.enable=0,opcache.enable=0,g /etc/php/7.2/fpm/php.ini
     else
         sudo sed -i s,\;opcache.enable=0,opcache.enable=0,g /etc/php/7.2/apache2/php.ini
@@ -607,7 +607,7 @@ sudo ln ~/go/bin/mhsendmail /usr/bin/sendmail
 sudo ln ~/go/bin/mhsendmail /usr/bin/mail
 
 # Make it work with PHP
-if [ $INSTALL_NGINX_INSTEAD == 1 ]; then
+if [ "${INSTALL_NGINX_INSTEAD}" == "1" ]; then
     echo 'sendmail_path = /usr/bin/mhsendmail' | sudo tee -a /etc/php/7.2/fpm/conf.d/user.ini
 else
     echo 'sendmail_path = /usr/bin/mhsendmail' | sudo tee -a /etc/php/7.2/apache2/conf.d/user.ini
