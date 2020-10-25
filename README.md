@@ -23,6 +23,12 @@ Box build from [Scotchbox build scripts](https://github.com/scotch-io/scotch-box
 - configurable web directory
 - Pre install usefull php tools (for debugging for exemple)
 
+## Customize
+
+- customise the scripts
+- run ./shell/vendor/clean_box.sh 
+- upload you change on vagrant with "vagrant cloud publish ..."
+
 ## Ressources
 - [Scotchbox](https://github.com/scotch-io/scotch-box)
 - [Scotchbox build scripts](https://github.com/scotch-io/scotch-box-build-scripts)
