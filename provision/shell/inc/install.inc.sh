@@ -502,7 +502,7 @@ function install_node(){
     sudo npm install -g pm2
     sudo npm install -g webpack
 }
-# install_node
+install_node
 
 
 
