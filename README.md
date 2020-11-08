@@ -8,11 +8,14 @@ Box build from [Scotchbox build scripts](https://github.com/scotch-io/scotch-box
 
 - Ubuntu 18.04
 - PHP 7.2
+- composer 2.0
 - MySQL 5.7
 - NGINX Option
 - Go lang in the box
 - PHPUnit in the box
 - MailHog : launch command "mailhog" after vagrant ssh
+- nodejs
+- npm
 - dos2unix : 
 - shellcheck : 
 
@@ -21,7 +24,7 @@ Box build from [Scotchbox build scripts](https://github.com/scotch-io/scotch-box
 
 - choice of php version
 - configurable web directory
-- Pre install usefull php tools (for debugging for exemple)
+- Pre install usefull php tools (for debugging for exemple phpcs, phpstan)
 
 ## Customize
 
