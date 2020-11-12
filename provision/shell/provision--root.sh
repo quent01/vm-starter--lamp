@@ -3,7 +3,9 @@
 # provision--root.inc.sh
 #
 
+# shellcheck source=./inc/variables.inc.sh
 source "/var/www/provision/shell/inc/variables.inc.sh"
+# shellcheck source=./functions.sh
 source "${PATH_PROVISION_SHELL}/functions.sh"
 
 # By storing the date now, we can calculate the duration of provisioning at the

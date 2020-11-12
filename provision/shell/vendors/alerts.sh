@@ -16,6 +16,7 @@ C_MAGENTA='\033[0;35m'
 C_CYAN='\033[0;36m'
 C_WHITE='\033[0;97m'
 
+export C_RED C_YELLOW C_NC C_GREEN C_BRN C_BLUE C_MAGENTA C_CYAN C_WHITE
 
 # Alerts
 # $1 : --warning, --info, --success, --error
@@ -23,16 +24,16 @@ C_WHITE='\033[0;97m'
 function alert() {
     level=$1
     msg=$2
-    if [ $level == '--warning']; then 
-        alert_warning $2
-    elif [ $level == '--info' ]; then
-        alert_info $2
-    elif [ $level == '--success' ]; then
-        alert_success $2
-    elif [ $level == '--error' ]; then
-        alert_error $2
+    if [[ "$level" == '--warning' ]]; then 
+        alert_warning "${msg}"
+    elif [[ $level == '--info' ]]; then
+        alert_info "${msg}"
+    elif [[ $level == '--success' ]]; then
+        alert_success "${msg}"
+    elif [[ $level == '--error' ]]; then
+        alert_error "${msg}"
     else
-        alert_info $2
+        alert_info "${msg}"
     fi
 }
 
