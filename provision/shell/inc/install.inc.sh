@@ -426,7 +426,7 @@ function install_composer(){
         rm composer-setup.php
     fi
     
-    php composer-setup.php --quiet
+    php composer-setup.php --1 --quiet
     RESULT=$?
     rm composer-setup.php
     sudo mv composer.phar /usr/local/bin/composer

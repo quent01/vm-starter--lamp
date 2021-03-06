@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
 
-    config.vm.box = "bento/ubuntu-18.04"
+    config.vm.box = "bento/ubuntu-20.04"
     config.vm.hostname = "vm-starter--lamp"
     config.vm.network "forwarded_port", guest: 80, host: 1212
     config.vm.network "private_network", ip: "192.168.33.10"
@@ -76,4 +76,11 @@ Vagrant.configure("2") do |config|
     # end
 
     config.vm.provision "shell", path: "provision/shell/provision--root.sh", keep_color: true
+
+    config.vm.provision "shell" do |s|
+        s.inline = <<-SHELL
+            mailhog
+            exit 0
+        SHELL
+    end
 end

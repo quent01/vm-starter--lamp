@@ -6,10 +6,10 @@ Box build from [Scotchbox build scripts](https://github.com/scotch-io/scotch-box
 
 ## Things installed
 
-- Ubuntu 18.04
+- Ubuntu 20.04
 - PHP 7.2
-- composer 2.0
-- MySQL 5.7
+- composer 1
+- MySQL 8.0
 - NGINX Option
 - Go lang in the box
 - PHPUnit in the box
